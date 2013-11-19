@@ -1,5 +1,5 @@
 require "ptlog/version"
 
-module Ptlog
+module PTLog
   # Your code goes here...
 end

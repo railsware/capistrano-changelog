@@ -1,6 +1,8 @@
-# Ptlog
+# PTLog
 
-TODO: Write a gem description
+Chagelog based on Git commits with a PivotalTracker story IDs.
+
+Integration with Capostrano.
 
 ## Installation
 
@@ -18,7 +20,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Capistrano tasks
+
+    set :ptlog_project_id, PROJECT_ID
+    set :ptlog_token, TOKEN
+    set :ptlog_output, "{release_path}/changelog.html"
+
+Hook
+
+    after :deploy, 'ptlog:generate'
 
 ## Contributing
 

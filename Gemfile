@@ -1,4 +1,9 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in ptlog.gemspec
 gemspec
+
+gem "pivotal-tracker"
+gem "rake"
+gem "rspec"
+gem "vcr", '>= 2.0.0.rc1'
+gem "webmock"
