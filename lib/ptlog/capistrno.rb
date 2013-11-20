@@ -4,10 +4,10 @@ Capistrano::Configuration.instance(:must_exist).load do
   namespace :ptlog do
     desc "Generates changelog"
     task :changes do
-      # put PTLog::ChangeLog.generate.to_html, "#{release_path}/public/changelog.html"
+      raise 'not implemented yet'
     end
 
-    desc "Generates release file. RESTART=(true|false) option could be specified (by default is false)"
+    desc "Generates release file. RESTART=(true|false) option could be specified (by default is true)"
     task :release do
       put PTLog::Release.generate, "#{release_path}/version.json"
     end
