@@ -26,9 +26,17 @@ Capistrano tasks
     set :ptlog_token, TOKEN
     set :ptlog_output, "{release_path}/changelog.html"
 
-Hook
+Hooks
 
-    after :deploy, 'ptlog:generate'
+    # Generates ChangeLog file
+    #
+    after :deploy, 'ptlog:changes'
+
+    # Generates version.json with last commit hash
+    #
+    after "deploy:update_code", "ptlog:release"
+
+
 
 ## Contributing
 

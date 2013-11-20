@@ -1,5 +1,7 @@
 require "ptlog/version"
+require "ptlog/capistrano"
 
 module PTLog
-  # Your code goes here...
+  autoload :Release, "ptlog/release"
+  autoload :ChangeLog, "ptlog/change_log"
 end
