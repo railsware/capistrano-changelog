@@ -1,5 +1,4 @@
 require "ptlog/version"
-require "ptlog/capistrano"
 
 module PTLog
   autoload :Release, "ptlog/release"
