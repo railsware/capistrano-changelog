@@ -48,7 +48,7 @@ module PTLog
 
     def initialize
       @git ||= Git.open(Dir.getwd)
-      @start = ENV['PTLOG_SINCE'] || git.lib.ordered_tags[-2]
+      @start = ENV['PTLOG_SINCE'] || git.lib.ordered_tags[-1]
       @tags = PTLog::TagList.new(@git, @start)
     end
 
@@ -74,9 +74,13 @@ module PTLog
 
       @builder = Nokogiri::HTML::Builder.new(:encoding => 'UTF-8') do |doc|
         doc.body do
-          doc.h1 "ChangeLog"
+          doc.h1 "Change Log @ #{Time.new.utc.strftime('%I:%M%P %D UTC')}"
           changelog.tags.each do |tag|
-            doc.h2 "Release #{tag}"
+            doc.h2 do
+              doc.text "Release #{tag} "
+              doc.text changelog.git.gcommit(tag).date.utc.strftime('(%I:%M%P %D UTC)')
+            end
+
             changelog.stories(changelog.tags.prev_to(tag), tag).each do |num, messages|
               doc.div(class: 'story') do
                 story = Pivotal::Story.get(num)
