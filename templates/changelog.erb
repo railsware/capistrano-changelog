@@ -109,22 +109,25 @@
       <h1>Change Log @ <%= changelog.date %></h1>
       <div class="content-inner">
 
-        <h2><%=  %> <span class="date">(02:15pm 11/21/13 UTC)</span></h2>
+        <% for release in changelog.releases %>
+        <h2><%= release.name %> <span class="date">(<%= release.date %>)</span></h2>
 
-        <div class="story">
+          <% for story in release.stories %>
+          <div class="story">
+            <h3>
+              <a href="<%= story.url %>"><span class="num"><%= story.id %></span></a>
+              <span class="name"><%= story.name %></span>
+            </h3>
+            <ul class="commits">
+              <% for commit in story.commits %>
+              <li><%= commit.message %></li>
+              <% end %>
+            </ul>
+          </div>
+          <% end %>
 
-          <h3>
-            <a href="http://www.pivotaltracker.com/story/show/60682890"><span class="num">60682890</span></a><span class="name"> notifications about system update</span>
-          </h3>
-
-          <ul class="commits">
-            <li>[#60682890] fixed error on version hash</li>
-            <li>[#60682890] added javascript version poller, actions on version update</li>
-          </ul>
-        </div>
-
+        <% end %>
       </div>
     </div>
-
   </body>
 </html>
