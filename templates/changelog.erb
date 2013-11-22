@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChangeLog</title>
+    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
+
+      @font-face {
+        font-family: sans-serif;
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: sans-serif;
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      body {
+        background-color: #f4f3f0;
+        min-width: 450px;
+        padding: 0;
+        margin: 0;
+        color: #292C2F;
+        font-family: DINPro-Regular, Arial;
+        font-size: 13px;
+      }
+
+      .content {
+        width: 800px;
+        margin: 22px auto;
+      }
+
+      .content-inner {
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        background: white;
+        padding: 1px 30px;
+        -webkit-box-shadow: 0 3px 5px #d4d5d5;
+        -moz-box-shadow: 0 3px 5px #d4d5d5;
+        -o-box-shadow: 0 3px 5px #d4d5d5;
+        box-shadow: 0 3px 5px #d4d5d5;
+      }
+
+      h1, h2 , h3 {
+        font-family: sans-serif;
+        color: #000;
+        line-height: 1.321em;
+        font-weight: normal;
+        margin: 0;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+        font-size: 30px;
+      }
+
+      h2 {
+        margin: 25px 0 10px;
+        font-size: 18px;
+      }
+
+      h3 {
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        padding-left: 15px;
+      }
+
+      a, a:visited, a:link, .num {
+        color: #4781c6;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #f2b500;
+        text-decoration: none;
+      }
+
+      ul, li {
+        list-style: none;
+      }
+
+      ul {
+        margin: 0;
+        margin-bottom: 10px;
+        padding-left: 30px;
+      }
+
+      .date {
+        font-size: 13px;
+        font-style: italic;
+      }
+
+      .story {
+        margin-bottom: 25px;
+      }
+
+    </style>
+
+    <link rel="shortcut icon" href="assets/favicon.ico" />
+  </head>
+
+  <body>
+    <div class="content">
+      <h1>Change Log @ <%= changelog.date %></h1>
+      <div class="content-inner">
+
+        <h2><%=  %> <span class="date">(02:15pm 11/21/13 UTC)</span></h2>
+
+        <div class="story">
+
+          <h3>
+            <a href="http://www.pivotaltracker.com/story/show/60682890"><span class="num">60682890</span></a><span class="name"> notifications about system update</span>
+          </h3>
+
+          <ul class="commits">
+            <li>[#60682890] fixed error on version hash</li>
+            <li>[#60682890] added javascript version poller, actions on version update</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>

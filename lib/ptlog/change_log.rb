@@ -1,4 +1,6 @@
 require 'git'
+require "erb"
+
 require 'nokogiri'
 
 module Git
