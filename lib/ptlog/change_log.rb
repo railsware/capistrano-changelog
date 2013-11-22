@@ -76,9 +76,12 @@ module PTLog
         doc.body do
           doc.h1 "Change Log @ #{Time.new.utc.strftime('%I:%M%P %D UTC')}"
           changelog.tags.each do |tag|
+
             doc.h2 do
               doc.text "Release #{tag} "
-              doc.text changelog.git.gcommit(tag).date.utc.strftime('(%I:%M%P %D UTC)')
+              doc.span(class: 'date') do
+                doc.text changelog.git.gcommit(tag).date.utc.strftime('(%I:%M%P %D UTC)')
+              end
             end
 
             changelog.stories(changelog.tags.prev_to(tag), tag).each do |num, messages|
@@ -87,11 +90,22 @@ module PTLog
                 doc.h3 do
                   if story.valid?
                     doc.a(href: story.url) do
-                      doc.text "##{num}"
+                      doc.span(class: 'num') do
+                        doc.text num
+                      end
                     end
-                    doc.text " - #{story.name}"
+                    doc.span(class: 'name') do
+                      doc.text " "
+                      doc.text story.name
+                    end
                   else
-                    doc.text "##{num} - #{story.error}"
+                    doc.span(class: 'num') do
+                      doc.text num
+                    end
+                    doc.span(class: 'name error') do
+                      doc.text " "
+                      doc.text story.error
+                    end
                   end
                 end
                 doc.ul(class: 'commits') do
