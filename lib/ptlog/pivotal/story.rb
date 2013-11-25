@@ -3,7 +3,10 @@ require 'faraday'
 module PTLog
   module Pivotal
     class Story
+      attr_reader :num
+
       def initialize(story_id)
+        @num = story_id
         @story = Pivotal::API.story(story_id)
         @labels = @story['labels'].map { |label| label['name'] } if @story['labels'].is_a?(Array)
       end
@@ -22,6 +25,10 @@ module PTLog
         else
           super
         end
+      end
+
+      def get_binding
+        self
       end
 
       def self.get(id)
