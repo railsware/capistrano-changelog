@@ -8,8 +8,8 @@ module PTLog::Wrappers
       @tags = PTLog::TagList.new(@git, @start)
     end
 
-    def title
-      "Change Log @ #{Time.new.utc.strftime('%I:%M%P %D UTC')}"
+    def date
+      Time.new.utc.strftime('%I:%M%P %D UTC')
     end
 
     def releases

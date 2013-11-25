@@ -27,10 +27,6 @@ module PTLog
         end
       end
 
-      def get_binding
-        self
-      end
-
       def self.get(id)
         return @stories[id] if defined?(@stories) and @stories[id]
         @stories ||= {}

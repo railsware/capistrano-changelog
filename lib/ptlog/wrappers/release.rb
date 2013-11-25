@@ -12,7 +12,7 @@ module PTLog::Wrappers
     end
 
     def date
-      @commit.date.utc.strftime('(%I:%M%P %D UTC)')
+      @commit.date.utc.strftime('%I:%M%P %D UTC')
     end
 
     def stories
@@ -26,6 +26,10 @@ module PTLog::Wrappers
       @git.log.between(@initial_commit, @tag).select do |commit|
         commit.message =~ (/\##{num}/)
       end
+    end
+
+    def get_binding
+      binding
     end
   end
 end

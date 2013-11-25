@@ -24,6 +24,14 @@ module PTLog
   autoload :Release,    "ptlog/release"
   autoload :ChangeLog,  "ptlog/change_log"
   autoload :TagList,    "ptlog/git/tags_list"
+
+  def self.root
+    File.expand_path '../..', __FILE__
+  end
+
+  def self.templates
+    File.join root, 'templates'
+  end
 end
 
 Git::Lib.send :include, PTLog::Git::Lib

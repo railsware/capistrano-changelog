@@ -106,21 +106,21 @@
 
   <body>
     <div class="content">
-      <h1>Change Log @ <%= changelog.date %></h1>
+      <h1>Change Log @ <%= @changelog.date %></h1>
       <div class="content-inner">
 
-        <% for release in changelog.releases %>
-        <h2><%= release.name %> <span class="date">(<%= release.date %>)</span></h2>
+        <% for @release in @changelog.releases %>
+        <h2><%= @release.title %> <span class="date">(<%= @release.date %>)</span></h2>
 
-          <% for story in release.stories %>
+          <% for @story in @release.stories %>
           <div class="story">
             <h3>
-              <a href="<%= story.url %>"><span class="num"><%= story.id %></span></a>
-              <span class="name"><%= story.name %></span>
+              <a href="<%= @story.url %>"><span class="num"><%= @story.num %></span></a>
+              <span class="name"><%= @story.name %></span>
             </h3>
             <ul class="commits">
-              <% for commit in story.commits %>
-              <li><%= commit.message %></li>
+              <% for @commit in @release.commits(@story.num) %>
+              <li><%= @commit.message %></li>
               <% end %>
             </ul>
           </div>
