@@ -114,10 +114,19 @@
 
           <% for @story in @release.stories %>
           <div class="story">
+
+            <% if @story.valid? %>
             <h3>
               <a href="<%= @story.url %>"><span class="num"><%= @story.num %></span></a>
               <span class="name"><%= @story.name %></span>
             </h3>
+            <% else %>
+            <h3>
+              <span class="num"><%= @story.num %></span>
+              <span class="name"><%= @story.error %></span>
+            </h3>
+            <% end %>
+
             <ul class="commits">
               <% for @commit in @release.commits(@story.num) %>
               <li><%= @commit.message %></li>

@@ -3,7 +3,7 @@ module PTLog
     include Enumerable
 
     def initialize(git, since)
-      @list = git.lib.ordered_tags
+      @list = git.lib.ordered_tags + ['HEAD']
       @since = since
       @first_commit = git.lib.first_commit
     end
