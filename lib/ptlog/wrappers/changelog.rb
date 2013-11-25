@@ -4,7 +4,7 @@ module PTLog::Wrappers
 
     def initialize
       @git ||= ::Git.open(Dir.getwd)
-      @start = ENV['PTLOG_SINCE'] || git.lib.ordered_tags[-1]
+      @start = ENV['PTLOG_SINCE'] || git.lib.ordered_tags.first
       @tags = PTLog::TagList.new(@git, @start)
     end
 
