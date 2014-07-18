@@ -1,29 +1,28 @@
-require "capistrano-changelog/version"
+require "changelog/version"
 require "git"
 
-
-module CapistranoChangelog
+module Changelog
   class GeneralError < StandardError; end
 
   module Pivotal
     class NetworkError < StandardError; end
 
-    autoload :Story, "capistrano-changelog/pivotal/story"
-    autoload :API, "capistrano-changelog/pivotal/api"
+    autoload :Story, "changelog/pivotal/story"
+    autoload :API, "changelog/pivotal/api"
   end
 
   module Git
-    autoload :Lib, "capistrano-changelog/git/lib"
+    autoload :Lib, "changelog/git/lib"
   end
 
   module Wrappers
-    autoload :ChangeLog,  "capistrano-changelog/wrappers/changelog"
-    autoload :Release,    "capistrano-changelog/wrappers/release"
+    autoload :ChangeLog,  "changelog/wrappers/changelog"
+    autoload :Release,    "changelog/wrappers/release"
   end
 
-  autoload :Release,    "capistrano-changelog/release"
-  autoload :ChangeLog,  "capistrano-changelog/change_log"
-  autoload :TagList,    "capistrano-changelog/git/tags_list"
+  autoload :Release,    "changelog/release"
+  autoload :ChangeLog,  "changelog/change_log"
+  autoload :TagList,    "changelog/git/tags_list"
 
   def self.root
     File.expand_path '../..', __FILE__
@@ -34,4 +33,10 @@ module CapistranoChangelog
   end
 end
 
-Git::Lib.send :include, CapistranoChangelog::Git::Lib
+Git::Lib.send :include, Changelog::Git::Lib
+
+if defined?(Capistrano::VERSION) && Gem::Version.new(Capistrano::VERSION).release >= Gem::Version.new('3.0.0')
+  load File.expand_path("../tasks/changelog.rake", __FILE__)
+else
+  require 'capistrano/v2/hooks'
+end

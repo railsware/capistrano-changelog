@@ -1,6 +1,6 @@
 require 'faraday'
 
-module CapistranoChangelog
+module Changelog
   module Pivotal
     class Story
       attr_reader :num

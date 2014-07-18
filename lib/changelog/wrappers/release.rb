@@ -1,4 +1,4 @@
-module CapistranoChangelog::Wrappers
+module Changelog::Wrappers
   class Release
     def initialize(tag, changelog)
       @tag = tag
@@ -19,7 +19,7 @@ module CapistranoChangelog::Wrappers
       ids = @git.log.between(@initial_commit, @tag).map do |commit|
         commit.message.scan(/\#(\d+)/)
       end
-      ids.flatten.uniq.map{ |num| CapistranoChangelog::Pivotal::Story.get(num) }
+      ids.flatten.uniq.map{ |num| Changelog::Pivotal::Story.get(num) }
     end
 
     def commits(num)

@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'capistrano-changelog/version'
+require 'changelog/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "capistrano-changelog"
-  spec.version       = CapistranoChangelog::VERSION
+  spec.version       = Changelog::VERSION
   spec.authors       = ["Dmitry Larkin"]
   spec.email         = ["dmitry.larkin@gmail.com"]
   spec.description   = %q{Uses git commits to recognize tracker stories and generates ChangeLog.}

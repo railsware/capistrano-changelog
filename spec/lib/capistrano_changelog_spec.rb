@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CapistranoChangelog do
+describe Changelog do
 
   describe ".root" do
     subject { described_class.root }

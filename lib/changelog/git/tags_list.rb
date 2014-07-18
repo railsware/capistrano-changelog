@@ -1,4 +1,4 @@
-module CapistranoChangelog
+module Changelog
   class TagList
     include Enumerable
 
