@@ -1,5 +1,5 @@
 require 'rspec'
-require 'ptlog'
+require 'capistrano-changelog'
 require 'vcr'
 
 RSpec.configure do |c|

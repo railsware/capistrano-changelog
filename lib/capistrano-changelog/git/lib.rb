@@ -1,4 +1,4 @@
-module PTLog::Git
+module CapistranoChangelog::Git
   module Lib
     def ordered_tags
       command_lines("for-each-ref --sort='*authordate' --format='%(tag)' refs/tags")

@@ -1,7 +1,7 @@
 require 'faraday'
 require 'faraday_middleware'
 
-module PTLog
+module CapistranoChangelog
   module Pivotal
     class API
       class << self

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PTLog::Wrappers::ChangeLog do
+describe CapistranoChangelog::Wrappers::ChangeLog do
 
   let(:git) { mock(:git) }
   let(:tags) { mock(:tag_list) }
@@ -8,7 +8,7 @@ describe PTLog::Wrappers::ChangeLog do
   describe ".date" do
 
   end
- 
+
   describe ".releases" do
 
   end

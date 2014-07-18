@@ -1,11 +1,11 @@
-module PTLog::Wrappers
+module CapistranoChangelog::Wrappers
   class ChangeLog
     attr_reader :git, :tags
 
     def initialize
       @git ||= ::Git.open(Dir.getwd)
       @start = ENV['PTLOG_SINCE'] || git.lib.ordered_tags.first
-      @tags = PTLog::TagList.new(@git, @start)
+      @tags = CapistranoChangelog::TagList.new(@git, @start)
     end
 
     def date
@@ -14,7 +14,7 @@ module PTLog::Wrappers
 
     def releases
       @tags.map do |tag|
-        PTLog::Wrappers::Release.new(tag, self)
+        CapistranoChangelog::Wrappers::Release.new(tag, self)
       end
     end
   end

@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ptlog/version'
+require 'capistrano-changelog/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ptlog"
-  spec.version       = PTLog::VERSION
+  spec.name          = "capistrano-changelog"
+  spec.version       = CapistranoChangelog::VERSION
   spec.authors       = ["Dmitry Larkin"]
   spec.email         = ["dmitry.larkin@gmail.com"]
-  spec.description   = %q{Generages changelog based on PivotalTracker stories and Git commits}
-  spec.summary       = %q{Generages changelog based on PivotalTracker stories and Git commits}
-  spec.homepage      = "https://github.com/dml/ptlog"
+  spec.description   = %q{Uses git commits to recognize tracker stories and generates ChangeLog.}
+  spec.summary       = %q{Uses git commits to recognize tracker stories and generates ChangeLog.}
+  spec.homepage      = "https://github.com/dml/capistrano-changelog"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency     "capistrano", "~> 2.0"
   spec.add_runtime_dependency     "faraday", "~> 0.8"
   spec.add_runtime_dependency     "faraday_middleware", "~> 0.9"
+  spec.add_runtime_dependency     "capistrano", "< 3.0"
 end

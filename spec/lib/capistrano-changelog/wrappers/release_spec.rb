@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PTLog::Wrappers::Release do
+describe CapistranoChangelog::Wrappers::Release do
 
   let(:tag) { mock(:tag) }
 

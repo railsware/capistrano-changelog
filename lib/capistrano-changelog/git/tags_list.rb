@@ -1,4 +1,4 @@
-module PTLog
+module CapistranoChangelog
   class TagList
     include Enumerable
 

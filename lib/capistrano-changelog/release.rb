@@ -1,6 +1,6 @@
 require 'git'
 
-module PTLog
+module CapistranoChangelog
   class Release
     def self.generate
       JSON.dump({
