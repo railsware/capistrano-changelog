@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Changelog::Wrappers::ChangeLog do
+describe CapistranoChangelog::Wrappers::Changelog do
 
   let(:git) { mock(:git) }
   let(:tags) { mock(:tag_list) }

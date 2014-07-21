@@ -5,7 +5,7 @@ require 'changelog/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "capistrano-changelog"
-  spec.version       = Changelog::VERSION
+  spec.version       = "0.4.0"
   spec.authors       = ["Dmitry Larkin"]
   spec.email         = ["dmitry.larkin@gmail.com"]
   spec.description   = %q{Uses git commits to recognize tracker stories and generates ChangeLog.}
@@ -18,12 +18,11 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^spec/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency 'bundler', '~> 1.3'
+  spec.add_development_dependency 'rake'
 
-  spec.add_runtime_dependency     "git", "~> 1.2.6"
-  spec.add_runtime_dependency     "capistrano", "~> 2.0"
-  spec.add_runtime_dependency     "faraday", "~> 0.8"
-  spec.add_runtime_dependency     "faraday_middleware", "~> 0.9"
-  spec.add_runtime_dependency     "capistrano", "< 3.0"
+  spec.add_runtime_dependency     'git', '~> 1.2.6'
+  spec.add_runtime_dependency     'capistrano', '< 3.0'
+  spec.add_runtime_dependency     'faraday', '~> 0.9'
+  spec.add_runtime_dependency     'faraday-http-cache', '~> 0.4'
 end

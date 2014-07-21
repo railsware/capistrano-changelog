@@ -10,7 +10,7 @@ module Changelog
     end
   end
 
-  class ChangeLog
+  class Changelog
     def self.generate
       raise GeneralError, "You have to specify Pivotal token with export PIVOTAL_TOKEN=xyz" unless ENV.has_key?('PIVOTAL_TOKEN')
 

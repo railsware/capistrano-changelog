@@ -3,10 +3,9 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rake'
-gem 'rspec'
-gem 'vcr', '~> 2.7'
+gem 'rspec', '~> 3.0'
 gem 'webmock'
 
 gem 'git'
-gem 'faraday', '~> 0.8'
-gem 'faraday-middleware', '~> 0.9'
+gem 'faraday', '~> 0.9'
+gem 'faraday-http-cache'

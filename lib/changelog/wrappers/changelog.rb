@@ -1,5 +1,5 @@
 module Changelog::Wrappers
-  class ChangeLog
+  class Changelog
     attr_reader :git, :tags
 
     def initialize

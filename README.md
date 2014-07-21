@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ## Usage
 
-Capistrano tasks
+Use following settings at deploy.rb
 
     set :changelog_tracker, :pivotal                # ticket tracking service, default: pivotal
     set :changelog_pivotal_token, 'xxxx'
