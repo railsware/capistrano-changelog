@@ -5,6 +5,7 @@ gemspec
 gem 'rake'
 gem 'rspec', '~> 3.0'
 gem 'webmock'
+gem 'nokogiri'
 
 gem 'git'
 gem 'faraday', '~> 0.9'

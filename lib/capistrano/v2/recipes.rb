@@ -12,8 +12,7 @@ Capistrano::Configuration.instance(:must_exist).load do
   namespace :deploy do
     desc "Generates changelog"
     task :changelog do
-      # put Changelog::Changelog.generate, "#{current_path}/public/changelog.html"
-      put "test", "#{current_path}/public/changelog.html"
+      put CapistranoChangelog::Changelog.generate, "#{current_path}/public/changelog.html"
     end
 
     desc "Generates version file. RESTART=(true|false) option could be specified (by default is true)"

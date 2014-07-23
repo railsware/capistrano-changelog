@@ -110,7 +110,7 @@
       <div class="content-inner">
 
         <% for @release in @changelog.releases %>
-        <h2><%= @release.title %> <span class="date">(<%= @release.date %>)</span></h2>
+        <h2><%= @release.name %> <span class="date">(<%= @release.date %>)</span></h2>
 
           <% for @story in @release.stories %>
           <div class="story">
