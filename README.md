@@ -1,14 +1,16 @@
-# PTLog
 
-Chagelog based on Git commits with a PivotalTracker story IDs.
+# capistrano-changelog
+
+Uses git commits to recognize tracker stories and generates ChangeLog.
 
 Integration with Capostrano.
+
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'ptlog'
+    gem 'capistrano-changelog', require: false
 
 And then execute:
 
@@ -16,26 +18,32 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ptlog
+    $ gem install capistrano-changelog
+
+Put into deploy.rb
+
+    require 'capistrano/changelog'
+
+
 
 ## Usage
 
-Capistrano tasks
+Use following settings at deploy.rb
 
-    set :ptlog_project_id, PROJECT_ID
-    set :ptlog_token, TOKEN
-    set :ptlog_output, "{release_path}/changelog.html"
+    role :changelog, %w{ host.name }, cache: true, version: true
+
+    set :changelog,         File.join(current_path, 'public', 'changelog.html')
+    set :changelog_version, File.join(current_path, 'public', 'version.json')
 
 Hooks
 
     # Generates ChangeLog file
     #
-    after :deploy, 'ptlog:changes'
+    after 'deploy:finished', 'deploy:changelog'
 
     # Generates version.json with last commit hash
     #
-    after "deploy:update_code", "ptlog:release"
-
+    after 'deploy:update_code', 'deploy:version'
 
 
 ## Contributing

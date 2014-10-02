@@ -106,32 +106,48 @@
 
   <body>
     <div class="content">
-      <h1>Change Log @ <%= @changelog.date %></h1>
+      <h1>Change Log @ <%= format date %></h1>
       <div class="content-inner">
 
-        <% for @release in @changelog.releases %>
-        <h2><%= @release.title %> <span class="date">(<%= @release.date %>)</span></h2>
+        <% for release in releases %>
+        <h2><%= release.comment %> <span class="date">(<%= format release.date %>)</span></h2>
 
-          <% for @story in @release.stories %>
+          <% for story in release.stories(history) %>
           <div class="story">
 
-            <% if @story.valid? %>
+            <% if story.valid? %>
             <h3>
-              <a href="<%= @story.url %>"><span class="num"><%= @story.num %></span></a>
-              <span class="name"><%= @story.name %></span>
+              <a href="<%= story.url %>"><span class="num"><%= story.uid %></span></a>
+              <span class="name"><%= story.title %></span>
             </h3>
             <% else %>
             <h3>
-              <span class="num"><%= @story.num %></span>
-              <span class="name"><%= @story.error %></span>
+              <span class="num"><%= story.uid %></span>
+              <span class="name"><%= story.error %></span>
             </h3>
             <% end %>
 
             <ul class="commits">
-              <% for @commit in @release.commits(@story.num) %>
-              <li><%= @commit.message %></li>
+              <% for commit in story.commits %>
+              <li><%= commit %></li>
               <% end %>
             </ul>
+          </div>
+          <% end %>
+
+          <% if release.unreconized?(history) %>
+          <div class="story">
+
+            <h3>
+              <span class="name">Unreconized</span>
+            </h3>
+
+            <ul class="commits">
+              <% for commit in release.unreconized(history) %>
+              <li><%= commit.short %> <%= commit %></li>
+              <% end %>
+            </ul>
+
           </div>
           <% end %>
 

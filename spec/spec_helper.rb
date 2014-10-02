@@ -1,6 +1,6 @@
 require 'rspec'
-require 'ptlog'
-require 'vcr'
+require 'nokogiri'
+require 'capistrano-changelog'
 
 RSpec.configure do |c|
   c.mock_with :rspec
