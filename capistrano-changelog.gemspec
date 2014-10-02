@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["dmitry.larkin@gmail.com"]
   spec.description   = %q{Uses git commits to recognize tracker stories and generates ChangeLog.}
   spec.summary       = %q{Uses git commits to recognize tracker stories and generates ChangeLog.}
-  spec.homepage      = "https://github.com/dml/capistrano-changelog"
+  spec.homepage      = "https://github.com/railsware/capistrano-changelog"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
