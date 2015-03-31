@@ -26,6 +26,6 @@ module CapistranoChangelog
   end
 
   def self.pivotal_tracker
-    ENV['PIVOTAL_TOKEN'] or raise CapistranoChangelog::GeneralError, "Pivotal Tracker access token missed. Run $ export PIVOTAL_TOKEN='you-access-token'."
+    ENV['PIVOTAL_TOKEN']
   end
 end

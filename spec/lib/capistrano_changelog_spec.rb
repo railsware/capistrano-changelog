@@ -15,4 +15,20 @@ describe CapistranoChangelog do
     it { should include described_class.root }
   end
 
+  describe '.pivotal_tracker' do
+    subject { described_class.pivotal_tracker }
+
+    before { ENV['PIVOTAL_TOKEN'] = nil }
+
+    it { should be_nil }
+
+    context "env variable is defined" do
+      let(:token) { 'test123456' }
+
+      before { ENV['PIVOTAL_TOKEN'] = token }
+
+      it { should == token }
+    end
+  end
+
 end

@@ -20,6 +20,8 @@ module CapistranoChangelog
       end
 
       def export(ids)
+        return [] unless CapistranoChangelog.pivotal_tracker
+
         response = connection.post do |opts|
           opts.url 'stories/export'
           opts.headers['Content-Type'] = 'application/json'
