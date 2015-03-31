@@ -5,7 +5,7 @@ require 'changelog/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "capistrano-changelog"
-  spec.version       = "0.4.1"
+  spec.version       = "0.5.0"
   spec.authors       = ["Dmitry Larkin"]
   spec.email         = ["dmitry.larkin@gmail.com"]
   spec.description   = %q{Uses git commits to recognize tracker stories and generates ChangeLog.}
