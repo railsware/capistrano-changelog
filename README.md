@@ -3,7 +3,7 @@
 
 Uses git commits to recognize tracker stories and generates ChangeLog.
 
-Integration with Capostrano.
+Integration with Capistrano.
 
 
 ## Installation
