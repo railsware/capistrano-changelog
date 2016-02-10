@@ -42,7 +42,7 @@ module CapistranoChangelog
     end
 
     def last_commit
-      csv_to_commits(run(CMD_LOG + 'HEAD^..HEAD'), CMD_LOG_HEADERS).first.tap{ |c| c.comment = 'HEAD' }
+      csv_to_commits(run(CMD_LOG + '| head -n1'), CMD_LOG_HEADERS).first.tap{ |c| c.comment = 'HEAD' }
     end
 
     def releases
