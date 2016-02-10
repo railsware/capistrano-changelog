@@ -35,7 +35,7 @@ OUTPUT
     end
 
     it "returns first commit object" do
-      allow(described_class).to receive(:run).with(described_class::CMD_LOG + 'HEAD^..HEAD').and_return(git_log)
+      allow(described_class).to receive(:run).with(described_class::CMD_LOG + '| head -n1').and_return(git_log)
 
       expect(described_class.last_commit.commit).to eq(last_commit)
     end

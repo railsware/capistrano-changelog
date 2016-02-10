@@ -1,4 +1,5 @@
 require 'csv'
+require 'ostruct'
 
 module CapistranoChangelog
   module Git

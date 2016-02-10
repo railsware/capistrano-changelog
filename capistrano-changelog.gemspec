@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'changelog/version'
+# require 'changelog/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "capistrano-changelog"
@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency     'capistrano', '< 3.0'
   spec.add_runtime_dependency     'faraday', '~> 0.9'
   spec.add_runtime_dependency     'faraday-http-cache', '~> 0.4'
+  spec.add_runtime_dependency     'net-ssh', '~> 2.9'
 end
